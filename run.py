@@ -39,7 +39,7 @@ def parse_flow_logs(flow_log_file, lookup_table):
         for line in file:
             if line != "\n":
                 parts = line.split(" ")
-                if len(parts) == 14:
+                if len(parts) >= 14:
                     dstport = parts[6].strip()
                     protocol_number = parts[7].strip()
 
