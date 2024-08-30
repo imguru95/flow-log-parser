@@ -1,0 +1,10 @@
+#Ignore virtual evnironment
+.venv/
+#Ignore all CSV files(input and output)
+*.csv
+#Ignore all (input) text files
+*.txt
+#Ignore .DS_Store
+.DS_Store
+#Ignore .idea
+.idea/
