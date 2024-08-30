@@ -1,4 +1,5 @@
 import csv
+import  sys
 from collections import defaultdict
 
 #Dictionary containing mapping of protocol numbers to protocol names
@@ -84,16 +85,16 @@ def run_parser(
 if __name__ == "__main__":
     run_parser("flow_logs.txt", "lookup_table.txt", "tag_counts.csv", "port_protocol_counts.csv")
 
-    # if len(sys.argv) != 5:
-    #     print("Incorrect command!!!")
-    #     print()
-    #     print(
-    #         f"Usage: python run.py <flow_log_file> <lookup_table_file> <tag_counts_file> <port_protocol_counts_file>"
-    #     )
-    #     sys.exit(1)
-    #
-    # flow_log_file, lookup_table_file, tag_counts_file, port_protocol_counts_file = sys.argv[1:5]
-    #
-    # run_parser(
-    #     flow_log_file, lookup_table_file, tag_counts_file, port_protocol_counts_file
-    # )
+    if len(sys.argv) != 5:
+        print("Incorrect command!!!")
+        print()
+        print(
+            f"Usage: python run.py <flow_log_file> <lookup_table_file> <tag_counts_file> <port_protocol_counts_file>"
+        )
+        sys.exit(1)
+
+    flow_log_file, lookup_table_file, tag_counts_file, port_protocol_counts_file = sys.argv[1:5]
+
+    run_parser(
+        flow_log_file, lookup_table_file, tag_counts_file, port_protocol_counts_file
+    )
