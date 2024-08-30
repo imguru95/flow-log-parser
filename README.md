@@ -1,7 +1,7 @@
 # Assumptions made
-1. default flow logs(version 2 and above) and not custom format
-2. flow logs do not contain column names
-3. Possible list of protocols that could be found in VPC flow logs
+1. The flow logs are in default format(version 2 and above) and not custom format
+2. Flow logs do not contain column names
+3. Possible list of protocols that could be found in VPC flow logs - icmp, gmp, ggp, tcp, udp, rdp, rsvp, gre, esp, ah, icmpv6, sctp
 4. Every log in flow logs file contains 14 or more space separated fields. The 14 fields are:
     1. Version
     2. Account ID
