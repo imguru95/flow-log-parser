@@ -1,4 +1,4 @@
-#Description
+# Description
 
 Write a program that can parse a file containing flow log data and maps each row to a tag based on a lookup table. The lookup table is defined as a csv file, and it has 3 columns, dstport, protocol, tag.
 The dstport and protocol combination decide what tag can be applied.
@@ -108,7 +108,7 @@ Port/Protocol Combination Counts:
 80,tcp,1
 
 
-Requirement details
+# Requirement details
 
 Input file as well as the file containing tag mappings are plain text (ascii) files
 The flow log file size can be up to 10 MB
@@ -121,7 +121,7 @@ For anything else that is not clear, please make reasonable assumptions and docu
 
 Reference for flow logs: https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html
 
-#Submissions 
+# Submissions 
 
 Please upload the submission to any of the collaboration portals like GitHub that you are comfortable sharing and share the link with us.   The submission should come with a readme with info on all the assumptions made, for instance, the program only supports default log format, not custom and the only version that is supported is 2. 
 
