@@ -49,8 +49,7 @@
       3) Unzip the downloaded "flow-log-parser-main" folder
 2) Add flow logs and look up files
    1) In the folder - "flow-log-parser-main" that was downloaded in 2), add the flow logs and look up tables(do not create a subfolder for these files). Both these files should be .txt files
-3) Ensure you have Python installed on your system. You can check if Python is installed by executing python --version in Terminal/Command Prompt
-4) If Python is not installed, install it by following instructions from - https://www.geeksforgeeks.org/download-and-install-python-3-latest-version/
+3) Ensure you have Python installed on your system. You can check if Python is installed by executing python --version in Terminal/Command Prompt. If Python is not installed, install it by following instructions from - https://www.geeksforgeeks.org/download-and-install-python-3-latest-version/
 5) Run the Python file run.py
    1) If you are on Windows, right click in folder and choose "Open in Terminal";
       If you are on Mac/Linux, open terminal and navigate to the folder - "flow-log-parser-main" using cd command. For
