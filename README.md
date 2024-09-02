@@ -23,11 +23,17 @@
 5. Outputs:
    1. Count of matches for each tag and count of matches for each port/protocol combination need to be CSV files
       without any blank line between any two consecutive lines.
-   2. In the file containing count of matches for each tag, the tag can be displayed in all lowercase.
+   2. In the output file containing count of matches for each tag, the tag can be displayed in all lowercase.
 
 
 # Some comments
 1) No non default libraries have been used but default libraries have been used
+2) Tests done - 
+   1) Case-insensitive matching of tags and port/protocol combinations
+   2) Verified that the program correctly generates output files for the given samples 
+   3) Confirmed that flow log entries that do not match any entry in the lookup are categorized as "Untagged".
+   4) Confirmed correct mapping of protocol numbers with protocol names
+
 
 # How to run the program
 1) Download the code. It can be done in two ways:
@@ -55,7 +61,7 @@
    <tag_counts_file_name> contains count of matches for each tag and <port_protocol_counts_file_name> contains count of matches for each port/protocol combination.
    Open these files in Excel.
 
+
 # References:
 1) https://docs.aws.amazon.com/vpc/latest/userguide/flow-log-records.html
 2) https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml
-
