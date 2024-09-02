@@ -16,6 +16,9 @@ protocols_dict = {
     "50": "esp",
     "51": "ah",
     "58": "icmpv6",
+    "89": "ospf",
+    "103": "pim",
+    "115": "l2tp",
     "132": "sctp",
 }
 
@@ -43,14 +46,17 @@ def parse_flow_logs(flow_log_file, lookup_table):
             with open(flow_log_file, mode="r") as file:
                 for line in file:
                     if line != "\n":
-                        parts = line.split(" ")
+                        parts = line.split()
                         if len(parts) >= 14:
                             dstport = parts[6].strip()
                             protocol_number = parts[7].strip()
 
                             # Map protocol number to protocol name
-                            protocol_name = protocols_dict[protocol_number]
-
+                            # protocol_name = protocols_dict[protocol_number]
+                            protocol_name = protocols_dict.get(protocol_number, "").lower()
+                            if not protocol_name:
+                                print(f"Protocol number: {protocol_number} not found in definition. Skipping line.")
+                                continue
                             tag = lookup_table.get((dstport, protocol_name), "Untagged")
                             tag_counts[tag] += 1
                             port_protocol_counts[(dstport, protocol_name)] += 1
