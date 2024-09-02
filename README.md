@@ -1,7 +1,8 @@
 # Assumptions made
 1. The flow logs are in default format(versions 2 and above) and not custom format
 2. Flow logs do not contain column names
-3. Possible list of protocols that could be found in the input VPC flow logs - icmp, gmp, ggp, tcp, udp, rdp, rsvp, gre, esp, ah, icmpv6, sctp
+3. Possible list of protocols that could be found in the input VPC flow logs - igmp, ggp, tcp, udp, rdp, rsvp, gre, esp,
+   ah, icmpv6, ospf, pim, l2tp, sctp
 4. Every log in flow logs file contains 14 or more space separated fields(default format version 2 has 14 fields with
    more additions for higher versions).
    The 14 fields are:
@@ -19,6 +20,7 @@
    12. End Time
    13. Action
    14. Log Status
+   
    If some line doesn't contain 14 or more field values, it will be skipped by my parser code.
 5. Outputs:
    1. Count of matches for each tag and count of matches for each port/protocol combination need to be CSV files
