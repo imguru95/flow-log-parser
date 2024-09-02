@@ -60,7 +60,9 @@
       note that <tag_counts_file_name> <port_protocol_counts_file_name> should have .csv extensions.
       For example the run command can be - python run.py flow_log.txt lookup_table.txt tag_counts.csv port_protocol_counts.csv
 6) At the end of the code execution, two files are generated in the "flow-log-parser-main" folder - <tag_counts_file_name> and <port_protocol_counts_file_name> csv files
+
    <tag_counts_file_name> contains count of matches for each tag and <port_protocol_counts_file_name> contains count of matches for each port/protocol combination.
+
    Open these files in Excel.
 
 
