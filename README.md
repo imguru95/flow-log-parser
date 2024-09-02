@@ -63,7 +63,7 @@
 
    <tag_counts_file_name> contains count of matches for each tag and <port_protocol_counts_file_name> contains count of matches for each port/protocol combination.
 
-   Open these files in Excel.
+   Open these files in Excel or a text editor.
 
 
 # References:
