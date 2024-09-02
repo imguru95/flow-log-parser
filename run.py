@@ -1,6 +1,7 @@
 import csv
 import sys
 from collections import defaultdict
+import os
 
 #Dictionary containing mapping of protocol numbers to protocol names
 protocols_dict = {
@@ -21,14 +22,15 @@ protocols_dict = {
 
 def load_lookup_table(lookup_table_file):
     lookup_table = {}
-    with open(lookup_table_file, mode="r") as file:
-        next(file)  # Skipping line containing column names
-        for line in file:
-            parts = line.split(",")
-            dstport = parts[0].strip()
-            protocol = parts[1].strip()
-            tag = parts[2].strip()
-            lookup_table[(dstport, protocol)] = tag
+    if os.path.getsize(lookup_table_file) != 0:
+        with open(lookup_table_file, mode="r") as file:
+            next(file)  # Skipping line containing column names
+            for line in file:
+                parts = line.split(",")
+                dstport = parts[0].strip()
+                protocol = parts[1].strip().lower()#converting all protocol names to lower case
+                tag = parts[2].strip().lower()#converting all tag names to lower case
+                lookup_table[(dstport, protocol)] = tag
     print("Lookup table loaded!")
     return lookup_table
 
@@ -36,22 +38,25 @@ def load_lookup_table(lookup_table_file):
 def parse_flow_logs(flow_log_file, lookup_table):
     tag_counts = defaultdict(int)
     port_protocol_counts = defaultdict(int)
+    try:
+        if os.path.getsize(flow_log_file) != 0:
+            with open(flow_log_file, mode="r") as file:
+                for line in file:
+                    if line != "\n":
+                        parts = line.split(" ")
+                        if len(parts) >= 14:
+                            dstport = parts[6].strip()
+                            protocol_number = parts[7].strip()
 
-    with open(flow_log_file, mode="r") as file:
-        for line in file:
-            if line != "\n":
-                parts = line.split(" ")
-                if len(parts) >= 14:
-                    dstport = parts[6].strip()
-                    protocol_number = parts[7].strip()
+                            # Map protocol number to protocol name
+                            protocol_name = protocols_dict[protocol_number]
 
-                    # Map protocol number to protocol name
-                    protocol_name = protocols_dict[protocol_number]
-
-                    tag = lookup_table.get((dstport, protocol_name), "Untagged")
-                    tag_counts[tag] += 1
-                    port_protocol_counts[(dstport, protocol_name)] += 1
-    print("Flow logs parsed successfully!")
+                            tag = lookup_table.get((dstport, protocol_name), "Untagged")
+                            tag_counts[tag] += 1
+                            port_protocol_counts[(dstport, protocol_name)] += 1
+    except Exception as e:
+        print(f"An exception occurred: {e}")
+    print("Flow logs parsed!")
     return tag_counts, port_protocol_counts
 
 
@@ -94,6 +99,4 @@ if __name__ == "__main__":
 
     flow_log_file, lookup_table_file, tag_counts_file, port_protocol_counts_file = sys.argv[1:5]
 
-    run_parser(
-        flow_log_file, lookup_table_file, tag_counts_file, port_protocol_counts_file
-    )
+    run_parser(flow_log_file, lookup_table_file, tag_counts_file, port_protocol_counts_file)
