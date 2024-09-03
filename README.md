@@ -48,7 +48,7 @@
       2) Click on Code(Green button) and under HTTPS click on "Download Zip"
       3) Unzip the downloaded "flow-log-parser-main" folder
 2) Add flow logs and look up files
-   1) In the folder - "flow-log-parser-main" that was downloaded in step 1), add the flow logs and look up tables(do not create a subfolder for these files). Both these files should be .txt files
+   1) In the folder - "flow-log-parser-main" that was downloaded in step 1), add the flow logs and look up tables(do not create a subfolder for these files). Both these files should be .txt files. In this code there are two files that I provided to test run the code - flow_logs_1.txt and lookup_table.txt.
 3) Ensure you have Python installed on your system. You can check if Python is installed by executing python --version in Terminal/Command Prompt. If Python is not installed, install it by following instructions from - https://www.geeksforgeeks.org/download-and-install-python-3-latest-version/
 5) Run the Python file run.py
    1) If you are on Windows, right click in folder and choose "Open in Terminal";
@@ -57,7 +57,7 @@
       and navigate to the folder containing run.py
    2) Once in the appropriate folder, execute python run.py <flow_log_file_name> <lookup_table_file_name> <tag_counts_file_name> <port_protocol_counts_file_name>;
       note that <tag_counts_file_name> <port_protocol_counts_file_name> should have .csv extensions.
-      For example the run command can be - python run.py flow_log.txt lookup_table.txt tag_counts.csv port_protocol_counts.csv
+      For example the run command can be - python run.py flow_logs_1.txt lookup_table.txt tag_counts.csv port_protocol_counts.csv
 6) At the end of the code execution, two files are generated in the "flow-log-parser-main" folder - <tag_counts_file_name> and <port_protocol_counts_file_name> csv files
 
    <tag_counts_file_name> contains count of matches for each tag and <port_protocol_counts_file_name> contains count of matches for each port/protocol combination.
