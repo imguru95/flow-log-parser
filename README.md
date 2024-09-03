@@ -42,13 +42,13 @@
    1) Using git
       1) Open your command prompt(Windows) or Terminal in Linux/Mac and navigate to a specific folder using cd.
       2) Execute - "git clone https://github.com/imguru95/flow-log-parser.git"
-      3) The code is downloaded
+      3) The code is downloaded in the current folder
    2) Download code as zip
       1) Go to https://github.com/imguru95/flow-log-parser
       2) Click on Code(Green button) and under HTTPS click on "Download Zip"
       3) Unzip the downloaded "flow-log-parser-main" folder
 2) Add flow logs and look up files
-   1) In the folder - "flow-log-parser-main" that was downloaded in 2), add the flow logs and look up tables(do not create a subfolder for these files). Both these files should be .txt files
+   1) In the folder - "flow-log-parser-main" that was downloaded in step 1), add the flow logs and look up tables(do not create a subfolder for these files). Both these files should be .txt files
 3) Ensure you have Python installed on your system. You can check if Python is installed by executing python --version in Terminal/Command Prompt. If Python is not installed, install it by following instructions from - https://www.geeksforgeeks.org/download-and-install-python-3-latest-version/
 5) Run the Python file run.py
    1) If you are on Windows, right click in folder and choose "Open in Terminal";
