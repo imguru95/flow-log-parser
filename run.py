@@ -51,12 +51,16 @@ def parse_flow_logs(flow_log_file, lookup_table):
                             dstport = parts[6].strip()
                             protocol_number = parts[7].strip()
 
+                            # Skipping entries in log file where dstport is not a valid number
+                            if not dstport.isdigit():
+                                continue
+
                             # Map protocol number to protocol name
-                            # protocol_name = protocols_dict[protocol_number]
                             protocol_name = protocols_dict.get(protocol_number, "").lower()
                             if not protocol_name:
                                 print(f"Protocol number: {protocol_number} not found in definition. Skipping line.")
                                 continue
+
                             tag = lookup_table.get((dstport, protocol_name), "Untagged")
                             tag_counts[tag] += 1
                             port_protocol_counts[(dstport, protocol_name)] += 1
